@@ -1,0 +1,1086 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerConnect - Job Consultancy Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            padding-top: 80px;
+        }
+
+        .navbar {
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            transition: color 0.3s;
+            margin: 0 0.3rem;
+            font-size: 0.95rem;
+        }
+
+            .nav-link:hover, .nav-link.active {
+                color: white !important;
+            }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+            .btn-primary:hover {
+                background-color: #2980b9;
+                border-color: #2980b9;
+            }
+
+        .btn-outline-primary {
+            color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+            .btn-outline-primary:hover {
+                background-color: var(--secondary);
+                color: white;
+            }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #34495e 100%);
+            color: white;
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+            .section-title::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: var(--secondary);
+            }
+
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            margin-bottom: 1.5rem;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+        .card-title {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+            .icon-box i {
+                font-size: 1.5rem;
+                color: var(--secondary);
+            }
+
+        .page-section {
+            display: none;
+            padding: 3rem 0;
+        }
+
+            .page-section.active {
+                display: block;
+            }
+
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+            .footer a {
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .footer a:hover {
+                    color: white;
+                }
+
+        .social-icons a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            margin-right: 0.5rem;
+        }
+
+            .social-icons a:hover {
+                background: var(--secondary);
+            }
+
+        .job-card {
+            transition: all 0.3s;
+        }
+
+            .job-card:hover {
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            }
+
+        .required-skill {
+            display: inline-block;
+            background: #e8f4fc;
+            color: var(--secondary);
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            margin: 0.2rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home" onclick="showPage('home')">
+                <i class="fas fa-handshake me-2"></i>CareerConnect
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" onclick="showPage('about')">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services" onclick="showPage('services')">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#industries" onclick="showPage('industries')">Industries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#job-openings" onclick="showPage('job-openings')">Job Openings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#employer-registration" onclick="showPage('employer-registration')">Employer Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#job-seeker" onclick="showPage('job-seeker')">Job Seeker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" onclick="showPage('contact')">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home" class="page-section active">
+        <div class="hero">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold mb-4">Connecting Talent with Opportunity</h1>
+                        <p class="lead mb-4">Your gateway to finding the perfect job or the ideal candidate. We specialize in creating meaningful connections between employers and job seekers.</p>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a href="#job-seeker" class="btn btn-primary btn-lg" onclick="showPage('job-seeker')">Find a Job</a>
+                            <a href="#employer-registration" class="btn btn-outline-light btn-lg" onclick="showPage('employer-registration')">Hire Talent</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block text-center">
+                        <i class="fas fa-search-location fa-8x" style="opacity: 0.8;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container py-5">
+            <h2 class="section-title">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h5 class="card-title">Job Search Assistance</h5>
+                            <p class="card-text">We help job seekers find the right opportunities based on their skills and experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h5 class="card-title">Recruitment Solutions</h5>
+                            <p class="card-text">We assist employers in finding qualified candidates for their open positions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h5 class="card-title">Career Counseling</h5>
+                            <p class="card-text">Our experts provide guidance for career growth and professional development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="#services" class="btn btn-outline-primary" onclick="showPage('services')">View All Services</a>
+            </div>
+        </div>
+
+        <div class="bg-light py-5">
+            <div class="container">
+                <h2 class="section-title">Featured Job Openings</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card job-card mb-4">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Marketing Executive</h5>
+                                    <span class="badge bg-success">Remote</span>
+                                </div>
+                                <h6 class="card-subtitle mb-2 text-muted">TechSolutions Inc.</h6>
+                                <p class="card-text">Develop and implement marketing strategies to promote company products and services.</p>
+                                <p class="card-text"><i class="fas fa-briefcase me-2"></i>2+ years experience</p>
+                                <a href="#job-openings" class="btn btn-sm btn-primary" onclick="showPage('job-openings')">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card job-card mb-4">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="card-title">Web Developer</h5>
+                                    <span class="badge bg-info text-dark">Full-time</span>
+                                </div>
+                                <h6 class="card-subtitle mb-2 text-muted">Digital Creations</h6>
+                                <p class="card-text">Design and develop responsive websites and web applications for various clients.</p>
+                                <p class="card-text"><i class="fas fa-briefcase me-2"></i>3+ years experience</p>
+                                <a href="#job-openings" class="btn btn-sm btn-primary" onclick="showPage('job-openings')">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="#job-openings" class="btn btn-primary" onclick="showPage('job-openings')">Browse All Jobs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page-section">
+        <div class="container py-5">
+            <h2 class="section-title">About Us</h2>
+            <div class="row mb-5">
+                <div class="col-lg-6">
+                    <h3>Who We Are</h3>
+                    <p>CareerConnect is a dedicated job consultancy firm with a mission to bridge the gap between talented professionals and forward-thinking companies. With years of experience in the recruitment industry, we understand the challenges both job seekers and employers face.</p>
+                    <p>Our team of experienced consultants is committed to providing personalized services that meet the unique needs of each client and candidate.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="Img/job placement.jpg" class="img-fluid rounded" alt="About Us">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h5 class="card-title">Our Mission</h5>
+                            <p class="card-text">To connect talented individuals with rewarding career opportunities while helping businesses find the perfect candidates to drive their success.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h5 class="card-title">Our Vision</h5>
+                            <p class="card-text">To be the leading job consultancy known for our personalized approach and successful career placements across various industries.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <div class="icon-box">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h5 class="card-title">Our Values</h5>
+                            <p class="card-text">Integrity, professionalism, and dedication are at the core of everything we do. We believe in building long-term relationships based on trust.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Page -->
+    <section id="services" class="page-section">
+        <div class="container py-5">
+            <h2 class="section-title">Our Services</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-box me-3">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <h4 class="card-title mb-0">For Job Seekers</h4>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Career counseling and guidance</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Resume writing and optimization</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Interview preparation and coaching</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Job search assistance</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Career development planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-box me-3">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h4 class="card-title mb-0">For Employers</h4>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Permanent staffing solutions</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Temporary and contract staffing</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Executive search</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Recruitment process outsourcing</li>
+                                <li class="list-group-item"><i class="fas fa-check-circle text-success me-2"></i>Market intelligence and salary benchmarking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-body text-center">
+                    <h4 class="card-title">Ready to Get Started?</h4>
+                    <p class="card-text">Whether you're looking for a job or looking to hire, we're here to help.</p>
+                    <a href="#contact" class="btn btn-primary me-3" onclick="showPage('contact')">Contact Us</a>
+                    <a href="#job-openings" class="btn btn-outline-primary" onclick="showPage('job-openings')">Browse Jobs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Page -->
+    <section id="industries" class="page-section">
+        <div class="container py-5">
+            <h2 class="section-title">Industries We Serve</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h5 class="card-title">Information Technology</h5>
+                            <p class="card-text">Software developers, system administrators, IT support, and more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h5 class="card-title">Finance & Banking</h5>
+                            <p class="card-text">Accountants, financial analysts, banking professionals, and more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <h5 class="card-title">Healthcare</h5>
+                            <p class="card-text">Doctors, nurses, medical technicians, healthcare administrators, and more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h5 class="card-title">Education</h5>
+                            <p class="card-text">Teachers, administrators, education consultants, and more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h5 class="card-title">Retail</h5>
+                            <p class="card-text">Store managers, sales associates, merchandisers, and more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="icon-box mx-auto">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h5 class="card-title">Manufacturing</h5>
+                            <p class="card-text">Production managers, quality control, engineers, and more.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Openings Page -->
+    <section id="job-openings" class="page-section">
+        <div class="container py-5">
+            <h2 class="section-title">Current Job Openings</h2>
+
+            <div class="row mb-4">
+                <div class="col-md-6 mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Search jobs by title, skill, or company" id="jobSearch">
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <select class="form-select" id="jobTypeFilter">
+                        <option value="">All Job Types</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Contract">Contract</option>
+                        <option value="Remote">Remote</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <select class="form-select" id="experienceFilter">
+                        <option value="">All Experience Levels</option>
+                        <option value="Entry">Entry Level</option>
+                        <option value="Mid">Mid Level</option>
+                        <option value="Senior">Senior Level</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" id="jobListings">
+                <div class="col-lg-6">
+                    <div class="card job-card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title">Frontend Developer</h5>
+                                <span class="badge bg-success">Remote</span>
+                            </div>
+                            <h6 class="card-subtitle mb-2 text-muted">WebTech Solutions</h6>
+                            <p class="card-text">Develop and maintain responsive web applications using modern JavaScript frameworks.</p>
+                            <div class="mb-3">
+                                <span class="required-skill">HTML/CSS</span>
+                                <span class="required-skill">JavaScript</span>
+                                <span class="required-skill">React</span>
+                                <span class="required-skill">UI/UX</span>
+                            </div>
+                            <p class="card-text"><i class="fas fa-briefcase me-2"></i>2+ years experience</p>
+                            <a href="#job-seeker" class="btn btn-primary" onclick="showPage('job-seeker')">Apply Now</a>
+                        </div>
+                    </div>
+
+                    <div class="card job-card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title">Marketing Manager</h5>
+                                <span class="badge bg-info text-dark">Full-time</span>
+                            </div>
+                            <h6 class="card-subtitle mb-2 text-muted">Growth Marketing Agency</h6>
+                            <p class="card-text">Develop and execute marketing strategies to increase brand awareness and generate leads.</p>
+                            <div class="mb-3">
+                                <span class="required-skill">Digital Marketing</span>
+                                <span class="required-skill">SEO</span>
+                                <span class="required-skill">Social Media</span>
+                                <span class="required-skill">Analytics</span>
+                            </div>
+                            <p class="card-text"><i class="fas fa-briefcase me-2"></i>5+ years experience</p>
+                            <a href="#job-seeker" class="btn btn-primary" onclick="showPage('job-seeker')">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card job-card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title">Data Analyst</h5>
+                                <span class="badge bg-warning text-dark">Contract</span>
+                            </div>
+                            <h6 class="card-subtitle mb-2 text-muted">Data Insights Inc.</h6>
+                            <p class="card-text">Analyze complex datasets to provide insights and support data-driven decision making.</p>
+                            <div class="mb-3">
+                                <span class="required-skill">SQL</span>
+                                <span class="required-skill">Python</span>
+                                <span class="required-skill">Tableau</span>
+                                <span class="required-skill">Statistics</span>
+                            </div>
+                            <p class="card-text"><i class="fas fa-briefcase me-2"></i>3+ years experience</p>
+                            <a href="#job-seeker" class="btn btn-primary" onclick="showPage('job-seeker')">Apply Now</a>
+                        </div>
+                    </div>
+
+                    <div class="card job-card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="card-title">HR Specialist</h5>
+                                <span class="badge bg-info text-dark">Full-time</span>
+                            </div>
+                            <h6 class="card-subtitle mb-2 text-muted">PeopleFirst Corporation</h6>
+                            <p class="card-text">Manage recruitment processes and employee relations for our growing organization.</p>
+                            <div class="mb-3">
+                                <span class="required-skill">Recruitment</span>
+                                <span class="required-skill">Onboarding</span>
+                                <span class="required-skill">HR Policies</span>
+                                <span class="required-skill">Employee Relations</span>
+                            </div>
+                            <p class="card-text"><i class="fas fa-briefcase me-2"></i>3+ years experience</p>
+                            <a href="#job-seeker" class="btn btn-primary" onclick="showPage('job-seeker')">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav aria-label="Job listings pagination">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Employer Registration Page -->
+    <section id="employer-registration" class="page-section">
+        <div class="container py-5">
+            <h2 class="section-title">Employer Registration</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Register Your Company</h4>
+                            <p class="card-text">Fill out the form to get started with our recruitment services.</p>
+                            <form id="employerForm">
+                                <div class="mb-3">
+                                    <label for="companyName" class="form-label">Company Name</label>
+                                    <input type="text" class="form-control" id="companyName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="industry" class="form-label">Industry</label>
+                                    <select class="form-select" id="industry" required>
+                                        <option value="">Select Industry</option>
+                                        <option value="IT">Information Technology</option>
+                                        <option value="Finance">Finance & Banking</option>
+                                        <option value="Healthcare">Healthcare</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Manufacturing">Manufacturing</option>
+                                        <option value="Retail">Retail</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactName" class="form-label">Contact Person</label>
+                                    <input type="text" class="form-control" id="contactName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactEmail" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="contactEmail" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="contactPhone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="contactPhone">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="hireNeeds" class="form-label">Hiring Needs</label>
+                                    <textarea class="form-control" id="hireNeeds" rows="3" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Registration</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Why Partner With Us?</h4>
+                            <div class="d-flex mb-4">
+                                <div class="me-3">
+                                    <i class="fas fa-check-circle text-success fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Access to Qualified Candidates</h5>
+                                    <p>We pre-screen all candidates to ensure they meet your requirements.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="me-3">
+                                    <i class="fas fa-check-circle text-success fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Time and Cost Efficient</h5>
+                                    <p>Save time and resources on recruitment processes.</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="me-3">
+                                    <i class="fas fa-check-circle text-success fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Industry Expertise</h5>
+                                    <p>Our consultants understand your industry-specific needs.</p>
+                                </div>
+                            </div>
+
+                            <div class="card bg-light mt-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Need Immediate Assistance?</h5>
+                                    <p class="card-text">Contact our recruitment team directly:</p>
+                                    <p class="card-text"><i class="fas fa-phone me-2"></i>+1 (555) 123-4567</p>
+                                    <p class="card-text"><i class="fas fa-envelope me-2"></i>employers@careerconnect.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Seeker Page -->
+    <section id="job-seeker" class="page-section">
+        <div class="container py-5">
+            <h2 class="section-title">Job Seeker Resources</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Register as a Job Seeker</h4>
+                            <p class="card-text">Create your profile to get matched with suitable job opportunities.</p>
+                            <form id="jobSeekerForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="profession" class="form-label">Profession</label>
+                                    <input type="text" class="form-control" id="profession" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="experience" class="form-label">Years of Experience</label>
+                                    <select class="form-select" id="experience" required>
+                                        <option value="">Select Experience</option>
+                                        <option value="0-2">0-2 years</option>
+                                        <option value="3-5">3-5 years</option>
+                                        <option value="5-10">5-10 years</option>
+                                        <option value="10+">10+ years</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="skills" class="form-label">Key Skills</label>
+                                    <textarea class="form-control" id="skills" rows="2" required></textarea>
+                                    <div class="form-text">Separate skills with commas (e.g., JavaScript, Python, Project Management)</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="resume" class="form-label">Upload Resume</label>
+                                    <input type="file" class="form-control" id="resume" accept=".pdf,.doc,.docx">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Profile</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Career Resources</h4>
+                            <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Resume Writing Tips</h5>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <p class="mb-1">Learn how to create a resume that stands out to employers.</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Interview Preparation</h5>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <p class="mb-1">Prepare for common interview questions and scenarios.</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Career Development</h5>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <p class="mb-1">Strategies for advancing your career and skills development.</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Salary Negotiation</h5>
+                                        <i class="fas fa-chevron-right"></i>
+                                    </div>
+                                    <p class="mb-1">Tips for negotiating your salary and benefits package.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Need Help With Your Job Search?</h4>
+                            <p class="card-text">Our career consultants are here to assist you:</p>
+                            <p class="card-text"><i class="fas fa-phone me-2"></i>+1 (555) 987-6543</p>
+                            <p class="card-text"><i class="fas fa-envelope me-2"></i>candidates@careerconnect.com</p>
+                            <a href="#contact" class="btn btn-outline-primary mt-2" onclick="showPage('contact')">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page-section">
+        <div class="container py-5">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Send Us a Message</h4>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Your Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Contact Information</h4>
+                            <div class="d-flex mb-4">
+                                <div class="me-3">
+                                    <i class="fas fa-map-marker-alt text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Address</h5>
+                                    <p>123 Business Avenue, Suite 100<br>Cityville, ST 12345</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="me-3">
+                                    <i class="fas fa-phone text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Phone</h5>
+                                    <p>+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <div class="me-3">
+                                    <i class="fas fa-envelope text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Email</h5>
+                                    <p>info@careerconnect.com</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-clock text-primary fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h5>Business Hours</h5>
+                                    <p>Monday-Friday: 9:00 AM - 5:30 PM<br>Saturday: 10:00 AM - 2:00 PM<br>Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Visit Our Office</h4>
+                    <div class="map-container" style="height: 300px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                        <i class="fas fa-map-marked-alt fa-5x text-secondary"></i>
+                        <p class="ms-3">Interactive map would be embedded here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>CareerConnect</h5>
+                    <p>Your trusted partner in career advancement and talent acquisition. We connect talented professionals with great companies.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#about" onclick="showPage('about')">About</a></li>
+                        <li><a href="#services" onclick="showPage('services')">Services</a></li>
+                        <li><a href="#industries" onclick="showPage('industries')">Industries</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#job-openings" onclick="showPage('job-openings')">Job Openings</a></li>
+                        <li><a href="#employer-registration" onclick="showPage('employer-registration')">Employers</a></li>
+                        <li><a href="#job-seeker" onclick="showPage('job-seeker')">Job Seekers</a></li>
+                        <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for the latest job opportunities and career tips.</p>
+                    <form class="d-flex">
+                        <input type="email" class="form-control me-2" placeholder="Your email address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2023 CareerConnect. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-light me-3">Privacy Policy</a>
+                    <a href="#" class="text-light">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to show the selected page and hide others
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + pageId) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Handle form submissions
+        document.getElementById('employerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your registration. We will contact you shortly!');
+            this.reset();
+        });
+
+        document.getElementById('jobSeekerForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for registering as a job seeker. We will review your profile and contact you soon!');
+            this.reset();
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your message. We will get back to you soon!');
+            this.reset();
+        });
+
+        // Simple job search filtering
+        const jobSearch = document.getElementById('jobSearch');
+        const jobTypeFilter = document.getElementById('jobTypeFilter');
+        const experienceFilter = document.getElementById('experienceFilter');
+        const jobCards = document.querySelectorAll('.job-card');
+
+        function filterJobs() {
+            const searchText = jobSearch.value.toLowerCase();
+            const jobTypeValue = jobTypeFilter.value;
+            const experienceValue = experienceFilter.value;
+
+            jobCards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const description = card.querySelector('.card-text').textContent.toLowerCase();
+                const jobTypeText = card.querySelector('.badge').textContent.toLowerCase();
+                const experienceText = card.querySelector('.fa-briefcase').parentNode.textContent.toLowerCase();
+
+                const matchesSearch = title.includes(searchText) || description.includes(searchText);
+                const matchesJobType = !jobTypeValue || jobTypeText.includes(jobTypeValue.toLowerCase());
+                const matchesExperience = !experienceValue ||
+                    (experienceValue === 'Entry' && experienceText.includes('entry')) ||
+                    (experienceValue === 'Entry' && experienceText.includes('0-2')) ||
+                    (experienceValue === 'Mid' && experienceText.includes('mid')) ||
+                    (experienceValue === 'Mid' && experienceText.includes('3-5')) ||
+                    (experienceValue === 'Senior' && experienceText.includes('senior')) ||
+                    (experienceValue === 'Senior' && experienceText.includes('5+'));
+
+                if (matchesSearch && matchesJobType && matchesExperience) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        jobSearch.addEventListener('input', filterJobs);
+        jobTypeFilter.addEventListener('change', filterJobs);
+        experienceFilter.addEventListener('change', filterJobs);
+    </script>
+</body>
+</html>
